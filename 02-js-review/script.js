@@ -158,7 +158,10 @@ pages;
 // const primaryGenre = genres[0];
 // const secondaryGenre = genres[1];
 // primaryGenre;
-const [primaryGenre, , thirdGenre] = genres;
-primaryGenre
+const [primaryGenre, , thirdGenre, ...otherGenres] = genres; //with skip and spread operators
 
-thirdGenre
+console.log(primaryGenre, thirdGenre, otherGenres);
+
+
+const updatedBook = {...book, moviePublicationDate : "2001-12-19", pages: 1211}; //overide pages.
+updatedBook;
