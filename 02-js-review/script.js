@@ -165,3 +165,7 @@ console.log(primaryGenre, thirdGenre, otherGenres);
 
 const updatedBook = {...book, moviePublicationDate : "2001-12-19", pages: 1211}; //overide pages.
 updatedBook;
+
+const summary = `${book.author
+} is  a book`;
+summary;
