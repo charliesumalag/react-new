@@ -60,14 +60,14 @@ const App = () => {
 
 export default App
 
-function Pizza(props) {
+function Pizza({photoName, name, ingredients, price}) {
   return (
     <div className='pizza'>
-      <img src={props.photoName} />
+      <img src={photoName} />
       <div>
-        <h3>{props.name}</h3>
-        <p>{props.ingredients}</p>
-        <span>{props.price + 3}</span>
+        <h3>{name}</h3>
+        <p>{ingredients}</p>
+        <span>{price + 3}</span>
       </div>
     </div>
   )
