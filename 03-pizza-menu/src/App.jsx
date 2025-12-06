@@ -82,14 +82,18 @@ function Header() {
 }
 
 function Menu() {
+  const pizzas = pizzaData;
+  const numPizzas = pizzas.length;
   return (
   <main className='menu'>
     <h2 className='text-xl font-medium'>Our Menu</h2>
-    <div>
-      {pizzaData.map((pizza) => (
-        <Pizza name={pizza.name} ingredients={pizza.ingredients} photoName={pizza.photoName} price={pizza.price}/>
-      ))}
-    </div>
+    {numPizzas > 0 && (
+      <ul className='pizzas'>
+        {pizzas.map((pizza) => (
+          <Pizza name={pizza.name} ingredients={pizza.ingredients} photoName={pizza.photoName} price={pizza.price} key={pizza.name}/>
+        ))}
+      </ul>
+    )}
   </main>
   )
 }
@@ -100,6 +104,10 @@ function Footer() {
   const closeHour = 22;
   const isOpen = hour >= openHour && hour <= closeHour;
 
-  return <footer className='footer'>{new Date().toLocaleTimeString()} We're currently open!</footer>
+  return <footer className='footer'>
+    {isOpen && (
+      <p>{new Date().toLocaleTimeString()} We're currently open!</p>
+    )}
+  </footer>
 
 }
