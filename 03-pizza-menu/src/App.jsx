@@ -105,9 +105,9 @@ function Footer() {
   const isOpen = hour >= openHour && hour <= closeHour;
 
   return <footer className='footer'>
-    {isOpen && (
+    {isOpen ? (
       <p>{new Date().toLocaleTimeString()} We're currently open!</p>
-    )}
+    ) : (<p>{new Date().toLocaleTimeString()} We're closed!</p>)}
   </footer>
 
 }
