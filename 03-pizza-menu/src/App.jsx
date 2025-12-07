@@ -62,14 +62,14 @@ const App = () => {
 
 export default App
 
-function Pizza({photoName, name, ingredients, price}) {
+function Pizza({photoName, name, ingredients, price, soldOut}) {
   return (
-    <div className='pizza'>
+    <div className={soldOut ? 'pizza sold-out' : 'pizza'}>
       <img src={photoName} />
       <div>
         <h3>{name}</h3>
         <p>{ingredients}</p>
-        <span>{price + 3}</span>
+        <span>{soldOut ? 'Sold Out' : price + 3}</span>
       </div>
     </div>
   )
@@ -92,7 +92,7 @@ function Menu() {
     {numPizzas > 0 && (
       <ul className='pizzas'>
         {pizzas.map((pizza) => (
-          <Pizza name={pizza.name} ingredients={pizza.ingredients} photoName={pizza.photoName} price={pizza.price} key={pizza.name}/>
+          <Pizza name={pizza.name} ingredients={pizza.ingredients} photoName={pizza.photoName} price={pizza.price} key={pizza.name} soldOut={pizza.soldOut}/>
         ))}
       </ul>
     )}
