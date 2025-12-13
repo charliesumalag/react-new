@@ -21,9 +21,11 @@ const App = () => {
   }
    const prevStep = () => {
     if (step > 1) {
-      setStep(step => step - 1);
+      setStep(step + 1);
+      setStep(step + 1);
     }
   }
+  setStep(step => step - 1);
   return (
     <>
       <button className='close' onClick={() => setIsOpen(!isOpen)}>{isOpen ? 'Close' : 'Open'}</button>
