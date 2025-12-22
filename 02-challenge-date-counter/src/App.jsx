@@ -3,13 +3,21 @@ import "./App.css";
 const App = () => {
   const [step, setStep] = useState(1);
   const [count, setCount] = useState(0);
-  const [date ,setDate] = useState(new Date());
+  const date = new Date ("june 21 2027");
+  date.setDate(date.getDate());
+  console.log(date.getDate());
+
+
+  // const [date ,setDate] = useState(new Date());
 
 
   const addDays = (date, days)  => {
     const result = new Date(date);
-    result.setDate(result.getDate + days)
     console.log(result);
+
+
+    // result.setDate(result.getDate + days)
+    // console.log(result);
 
   }
 
@@ -44,9 +52,16 @@ const App = () => {
         <span>Count: {count}</span>
         <button onClick={addCount}>+</button>
       </div>
-      <div>
-        <span>{count} from today is </span>
-      </div>
+      <p>
+        <span>
+          {count === 0
+          ? "Today is"
+          : count > 0
+          ? `${count} days from today is`
+          : `${count} days ago was`}
+        </span>
+        <span>{date.toDateString()}</span>
+      </p>
     </div>
   )
 }
